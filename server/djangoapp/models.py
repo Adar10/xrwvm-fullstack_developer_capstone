@@ -26,12 +26,9 @@ class CarMake(models.Model):
 # - Any other fields you would like to include in car model
 # - __str__ method to print a car model object
 class CarModel(models.Model):
-    car_make = models.ForeignKey(
-        CarMake,
-        on_delete=models.CASCADE,
-        related_name='car_models'
-    )
+    car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE) 
     name = models.CharField(max_length=100)
+    dealer_id = models.IntegerField()
     CAR_TYPES = [
         ('SEDAN', 'Sedan'),
         ('SUV', 'SUV'),
