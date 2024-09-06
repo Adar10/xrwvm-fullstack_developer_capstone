@@ -32,7 +32,6 @@ class CarModel(models.Model):
         related_name='car_models'
     )
     name = models.CharField(max_length=100)
-    
     CAR_TYPES = [
         ('SEDAN', 'Sedan'),
         ('SUV', 'SUV'),

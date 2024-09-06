@@ -77,11 +77,11 @@ def registration(request):
     if not username_exist:
         # Create user in auth_user table
         user = User.objects.create_user(
-            username = username,
-            first_name = first_name,
-            last_name = last_name,
-            password = password,
-            email = email
+            username=username,
+            first_name=first_name,
+            last_name=last_name,
+            password=password,
+            email=email
         )
         # Login the user and return success response
         login(request, user)
@@ -90,6 +90,7 @@ def registration(request):
     else:
         data = {"userName": username, "error": "Already Registered"}
         return JsonResponse(data)
+
 
 
 # Update the `get_dealerships` view to render the list of dealerships
@@ -141,4 +142,3 @@ def add_review(request):
             )
     else:
         return JsonResponse({"status": 403, "message": "Unauthorized"})
-
