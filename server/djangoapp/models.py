@@ -27,18 +27,22 @@ class CarMake(models.Model):
 # - __str__ method to print a car model object
 class CarModel(models.Model):
     car_make = models.ForeignKey(
-    CarMake,
-    on_delete = models.CASCADE,
-    related_name = 'car_models'
+        CarMake,
+        on_delete=models.CASCADE,
+        related_name='car_models'
     )
     name = models.CharField(max_length=100)
-    # Removed dealer_id as it was not mentioned in hints and may be unnecessary
+    
     CAR_TYPES = [
         ('SEDAN', 'Sedan'),
         ('SUV', 'SUV'),
         ('WAGON', 'Wagon'),
     ]
-    type = models.CharField(max_length=10, choices=CAR_TYPES, default='SUV')
+    type = models.CharField(
+        max_length=10,
+        choices=CAR_TYPES,
+        default='SUV'
+    )
     year = models.IntegerField(
         default=2023,
         validators=[
