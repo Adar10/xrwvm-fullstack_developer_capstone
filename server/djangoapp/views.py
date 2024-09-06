@@ -92,7 +92,6 @@ def registration(request):
         return JsonResponse(data)
 
 
-
 # Update the `get_dealerships` view to render the list of dealerships
 def get_dealerships(request, state="All"):
     if state == "All":
@@ -142,3 +141,4 @@ def add_review(request):
             )
     else:
         return JsonResponse({"status": 403, "message": "Unauthorized"})
+
